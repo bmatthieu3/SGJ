@@ -17,8 +17,8 @@ public class test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nomImage = unNom.GetComponent<Image>();
-        inputField = unNom.GetComponent<InputField>();
+        nomImage = gameObj.GetComponent<Image>();
+        inputField = gameObj.GetComponent<InputField>();
         nomImage = gameObj.GetComponent<Image>();
     }
 
