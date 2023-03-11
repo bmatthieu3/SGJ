@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Text;
+using System;
 
 /*
  * This script is used to manage the game : Player 2 has to guess the image, which is displayed on the screen.
@@ -11,13 +13,13 @@ public class scriptGuessGame : MonoBehaviour
 {
     [SerializeField] private Image image;
     // Input field
-    [SerializeField] public InputField inputField;
+    [SerializeField] public UnityEngine.UI.InputField inputField;
     // Sprites
     [SerializeField] public Sprite[] frogSprites;
     [SerializeField] public Sprite[] eyeSprites;
     [SerializeField] public Sprite[] pizzaSprites;
     [SerializeField] public Sprite[] snakeSprites;
-    private int numSpriteSets = 4;
+    // private int numSpriteSets = 4;
 
     // Cursor and graduate sprites
     [SerializeField] public Sprite cursorSprite;
@@ -40,10 +42,9 @@ public class scriptGuessGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inputField = GetComponent<InputField>();
         image = GetComponent<Image>();
 
-        int idxSpriteSet = Random.Range(0, 4);
+        int idxSpriteSet = UnityEngine.Random.Range(0, 4);
 
         switch (idxSpriteSet) {
             case 0:
@@ -97,6 +98,51 @@ public class scriptGuessGame : MonoBehaviour
                 image.sprite = curSpriteSet[idxSprite % curSpriteSet.Length]; // Change the sprite of the Image object
                 idxSprite += 1;
             }
+        }
+    }
+
+    public void resetColor()
+    {
+        if (inputField.text == "")
+            inputField.image.color = Color.white;
+    }
+
+
+    public void checkSolution()
+    {
+        string inputText = inputField.text;
+        if (inputText == "")
+            return;
+        string lower_str = inputText.ToLower();
+        StringBuilder sb = new StringBuilder();
+        foreach (char c in lower_str)
+        {
+            if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_') {
+                sb.Append(c);
+            }
+        }
+        string answer = sb.ToString();
+        Debug.Log("Input field text: " + answer);
+
+        bool found = false;
+        foreach (string solution in solutions)
+        {
+            if (answer == solution)
+            {
+                found = true;
+                break;
+            }
+        }
+
+        if ( found )
+        {
+            Debug.Log(inputText + " est la bonne réponse");
+            inputField.image.color = Color.green;
+        }
+        else
+        {
+            Debug.Log(inputText + " est la mauvaise réponse");
+            inputField.image.color = Color.red;
         }
     }
 }

@@ -453,8 +453,8 @@ MonoBehaviour:
   m_OnDidEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: test2, Assembly-CSharp
+      - m_Target: {fileID: 1428302406}
+        m_TargetAssemblyTypeName: scriptGuessGame, Assembly-CSharp
         m_MethodName: checkSolution
         m_Mode: 1
         m_Arguments:
@@ -468,8 +468,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: test2, Assembly-CSharp
+      - m_Target: {fileID: 1428302406}
+        m_TargetAssemblyTypeName: scriptGuessGame, Assembly-CSharp
         m_MethodName: resetColor
         m_Mode: 1
         m_Arguments:
@@ -666,7 +666,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6d412392fb219ed0c908cf2028b743b8, type: 3}
-    m_FontSize: 18
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 0}
-  inputField: {fileID: 0}
+  inputField: {fileID: 652206787}
   frogSprites:
   - {fileID: 21300000, guid: 7e2c4777a64384ee29bb688413224bdb, type: 3}
   - {fileID: 21300000, guid: 12f01f16f08ec47238ba6b544bca0cf6, type: 3}
