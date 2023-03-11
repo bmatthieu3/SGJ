@@ -6,31 +6,34 @@ using System.Text;
 
 public class test : MonoBehaviour
 {
-    public GameObject gameObj;
-    [SerializeField] public Sprite m_Sprite;
-
-    [SerializeField] private Image nomImage;
-    public InputField inputField;
+    [SerializeField] private Image image;
+    // Input field
+    [SerializeField] public InputField inputField;
+    // Sprites
+    [SerializeField] public Sprite[] newSprites;
+    private int idxSprite = 0;
+    // Timer
+    private float nextActionTime = 0.0f;
+    public float timeBetweenTwoSpriteRes = 0.2f;
 
     [SerializeField] private string solution = "grenouille";
 
-    private float nextActionTime = 0.0f;
-    public float period = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        nomImage = gameObj.GetComponent<Image>();
-        inputField = gameObj.GetComponent<InputField>();
-        nomImage = gameObj.GetComponent<Image>();
+        inputField = GetComponent<InputField>();
+        image = GetComponent<Image>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       if (Time.time > nextActionTime ) {
-            nextActionTime += period;
+       if (Time.time > nextActionTime) {
+            nextActionTime += timeBetweenTwoSpriteRes;
             // change the sprite here
+            image.sprite = newSprites[idxSprite % newSprites.Length]; // Change the sprite of the Image object
+            idxSprite += 1;
         }
     }
 
@@ -38,7 +41,7 @@ public class test : MonoBehaviour
     public void ButtonTest()
     {
         Debug.Log("Boutton fonctionne");
-        nomImage.sprite = m_Sprite;
+
     }
 
     public void checkSolution()
