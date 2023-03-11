@@ -142,6 +142,7 @@ public class scriptGuessGame : MonoBehaviour
         {
             Debug.Log(inputText + " est la bonne réponse");
             inputField.image.color = Color.green;
+            finished = true;
         }
         else
         {
