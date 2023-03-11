@@ -8,10 +8,13 @@ public class test : MonoBehaviour
     public GameObject unNom;
     [SerializeField] private Image nomImage;
 
+    public InputField inputField;
+
     // Start is called before the first frame update
     void Start()
     {
         nomImage = unNom.GetComponent<Image>();
+        inputField = unNom.GetComponent<InputField>();
     }
 
     // Update is called once per frame
@@ -27,9 +30,8 @@ public class test : MonoBehaviour
 
     public void InputFieldTest()
     {
-        // string newValue = unNom.GetComponent<InputField>().text;
-        string newValue = "test";
-        Debug.Log("InputField fonctionne : " + newValue);
+        string inputText = inputField.text;
+        Debug.Log("Input field text: " + inputText);
     }
 
 }
