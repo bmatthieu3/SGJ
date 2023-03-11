@@ -14,13 +14,16 @@ public class test : MonoBehaviour
     [SerializeField] public Sprite[] eyeSprites;
     [SerializeField] public Sprite[] pizzaSprites;
     [SerializeField] public Sprite[] snakeSprites;
-    private int numSpriteSets = 4;
 
     // Cursor and graduate sprites
     [SerializeField] public Sprite cursorSprite;
     [SerializeField] public Sprite graduateSprite;
 
     [SerializeField] private string solution = "grenouille";
+
+    // Cursor/Graduate
+    [SerializeField] private GameObject cursor;
+    [SerializeField] public Transform[] cursorTransforms;
 
     private Sprite[] curSpriteSet;
     private int idxSprite = 0;
@@ -30,6 +33,8 @@ public class test : MonoBehaviour
 
     // Player score
     private int score = 0;
+    private int player2SpeedScore = 0;
+    private int player1PrecisionScore = 0;
 
     // game finished
     private bool finished = false;
@@ -70,26 +75,28 @@ public class test : MonoBehaviour
             // has not guessed anything,
             // => the game ends without giving any score
             if (idxSprite == curSpriteSet.Length) {
-                ComputeScore(1, 10);
                 finished = true;
             } else {
-                // change the sprite here
+                // Change the sprite here
                 image.sprite = curSpriteSet[idxSprite % curSpriteSet.Length]; // Change the sprite of the Image object
+                // Set a new position for the cursor
+                cursor.transform.position = cursorTransforms[idxSprite % cursorTransforms.Length].position;
+
                 idxSprite += 1;
             }
         }
     }
 
-    void ComputeScore(int player1guess, int player2result) {
+    void ComputeFinalScore(int player1guess, int player2result) {
         // Speed between 1 and 10:
         // - 1: the player2 guess at the full resolution (10)
         // - 10: the players2 guess at the resolution the most degraded (1)
-        int Player2Speed = 10 - player2result + 1;
+        player2SpeedScore = 10 - player2result + 1;
         // Team score avec le player 1, between:
         // - 10 for good guess
         // - 1 for opposite guess
-        int Player1Precision = 10 - System.Math.Abs(player1guess - player2result);
-        score = Player1Precision * Player2Speed;
+        player1PrecisionScore = 10 - System.Math.Abs(player1guess - player2result);
+        score = player1PrecisionScore * player2SpeedScore;
     }
 
     public void InputFieldTest()
@@ -114,6 +121,5 @@ public class test : MonoBehaviour
         {
             Debug.Log(inputText + " est la mauvaise réponse");
         }
-
     }
 }
