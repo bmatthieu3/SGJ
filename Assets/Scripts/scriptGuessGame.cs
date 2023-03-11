@@ -22,10 +22,10 @@ public class scriptGuessGame : MonoBehaviour
     // private int numSpriteSets = 4;
 
     // Cursor and graduate sprites
-    [SerializeField] public Sprite cursorSprite;
-    [SerializeField] public Sprite graduateSprite;
-
     [SerializeField] private string[] solutions;
+    // Cursor/Graduate
+    [SerializeField] private GameObject cursor;
+    [SerializeField] public Transform[] cursorTransforms;
 
     private Sprite[] curSpriteSet;
     private int idxSprite = 0;
@@ -35,6 +35,8 @@ public class scriptGuessGame : MonoBehaviour
 
     // Player score
     private int score = 0;
+    private int player2SpeedScore = 0;
+    private int player1PrecisionScore = 0;
 
     // game finished
     private bool finished = false;
@@ -83,19 +85,21 @@ public class scriptGuessGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!finished && Time.time > nextActionTime)
-        {
+        if (!finished && Time.time > nextActionTime) {
             nextActionTime += timeBetweenTwoSpriteRes;
 
             // We are at the end of the last image and the player
             // has not guessed anything,
             // => the game ends without giving any score
             if (idxSprite == curSpriteSet.Length) {
-                ComputeScore(1, 10);
                 finished = true;
             } else {
-                // change the sprite here
+                // Change the sprite here
                 image.sprite = curSpriteSet[idxSprite % curSpriteSet.Length]; // Change the sprite of the Image object
+                // Set a new position for the cursor
+                cursor.transform.position = cursorTransforms[idxSprite % cursorTransforms.Length].position;
+
+                Debug.Log(cursor.transform.position);
                 idxSprite += 1;
             }
         }
