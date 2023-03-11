@@ -19,7 +19,6 @@ public class scriptGuessGame : MonoBehaviour
     [SerializeField] public Sprite[] eyeSprites;
     [SerializeField] public Sprite[] pizzaSprites;
     [SerializeField] public Sprite[] snakeSprites;
-    // private int numSpriteSets = 4;
 
     // Cursor and graduate sprites
     [SerializeField] private string[] solutions;
@@ -142,6 +141,7 @@ public class scriptGuessGame : MonoBehaviour
         {
             Debug.Log(inputText + " est la bonne réponse");
             inputField.image.color = Color.green;
+
             finished = true;
         }
         else
