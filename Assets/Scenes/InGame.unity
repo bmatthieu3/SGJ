@@ -3608,6 +3608,7 @@ MonoBehaviour:
   - {fileID: 1098752714}
   - {fileID: 1387581484}
   bet_value: 0
+  finished: 0
 --- !u!95 &981838801
 Animator:
   serializedVersion: 5
@@ -4158,6 +4159,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d4d844b97d63cf38d9c3239eaa707400, type: 3}
   - {fileID: 21300000, guid: cebfd32caf8d7662b86e29dfbe2eb86b, type: 3}
   - {fileID: 21300000, guid: c740fa497124189b48bd6cc896d40209, type: 3}
+  bet: {fileID: 981838800}
 --- !u!95 &1097661302
 Animator:
   serializedVersion: 5
@@ -5754,6 +5756,9 @@ MonoBehaviour:
   - {fileID: 77007889}
   - {fileID: 1956703195}
   - {fileID: 2016483965}
+  countdown: {fileID: 1097661301}
+  idxSprite: 0
+  startTime: 0
   timeBetweenTwoSpriteRes: 2
 --- !u!95 &1428302407
 Animator:
@@ -9089,6 +9094,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc0933251a0bb24ba55bf24234a2800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas4: {fileID: 1128927766}
+  canvas5: {fileID: 1764741949}
+  canvas6: {fileID: 1826284269}
 --- !u!4 &2133078644
 Transform:
   m_ObjectHideFlags: 0

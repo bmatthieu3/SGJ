@@ -10,6 +10,8 @@ public class bet : MonoBehaviour
     [SerializeField] public Transform[] cursorTransforms;
     public int bet_value;
 
+    public bool finished = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,10 @@ public class bet : MonoBehaviour
         bet_value = 1;
         cursor.transform.position = cursorTransforms[0 % cursorTransforms.Length].position;
 
+    }
+
+    public bool isFrameFinished() {
+        return finished;
     }
 
     // Update is called once per frame
@@ -31,5 +37,7 @@ public class bet : MonoBehaviour
         bet_value = bet;
         int idxSprite = bet - 1;
         cursor.transform.position = cursorTransforms[idxSprite % cursorTransforms.Length].position;
+
+        finished = true;
     }
 }

@@ -26,9 +26,13 @@ public class scriptGuessGame : MonoBehaviour
     [SerializeField] private GameObject cursor;
     [SerializeField] public Transform[] cursorTransforms;
 
+    // Previous frame
+    [SerializeField] private countdown countdown;
+
     private Sprite[] curSpriteSet;
-    private int idxSprite = 0;
+    public int idxSprite = 0;
     // Timer
+    public float startTime = 0.0f;
     private float nextActionTime = 0.0f;
     public float timeBetweenTwoSpriteRes = 0.2f;
 
@@ -39,10 +43,28 @@ public class scriptGuessGame : MonoBehaviour
 
     // game finished
     private bool finished = false;
+    void Awake()
+    {
+        Debug.Log("Awake");
+    }
+
+    IEnumerator StartAfterPrevSlide()
+    {
+        yield return new WaitUntil(() => {
+            var transition = countdown.isFrameFinished();
+            if (transition) {
+                startTime = Time.time;
+            }
+
+            return transition;
+        });
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(StartAfterPrevSlide());
+
         image = GetComponent<Image>();
 
         int idxSpriteSet = UnityEngine.Random.Range(0, 4);
@@ -66,7 +88,7 @@ public class scriptGuessGame : MonoBehaviour
                 break;
             default:
                 break;
-        }
+        } 
     }
 
     void ComputeScore(int player1guess, int player2result) {
@@ -84,7 +106,7 @@ public class scriptGuessGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!finished && Time.time > nextActionTime) {
+        if (!finished && (Time.time - startTime) > nextActionTime) {
             nextActionTime += timeBetweenTwoSpriteRes;
 
             // We are at the end of the last image and the player
@@ -98,7 +120,6 @@ public class scriptGuessGame : MonoBehaviour
                 // Set a new position for the cursor
                 cursor.transform.position = cursorTransforms[idxSprite % cursorTransforms.Length].position;
 
-                Debug.Log(cursor.transform.position);
                 idxSprite += 1;
             }
         }
@@ -110,6 +131,9 @@ public class scriptGuessGame : MonoBehaviour
             inputField.image.color = Color.white;
     }
 
+    public bool isFrameFinished() {
+        return finished;
+    }
 
     public void checkSolution()
     {
