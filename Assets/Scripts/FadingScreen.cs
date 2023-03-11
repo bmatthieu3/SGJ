@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class FadingScreen : MonoBehaviour
 {
     private Image screenRend;
-    private Color colorScreen;
+    [SerializeField]private Color colorScreen;
     [SerializeField] private float lerpDuration = 2f;
 
     private void Awake()
