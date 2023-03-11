@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Text;
 
 public class test : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class test : MonoBehaviour
     // Cursor and graduate sprites
     [SerializeField] public Sprite cursorSprite;
     [SerializeField] public Sprite graduateSprite;
+
+    [SerializeField] private string solution = "grenouille";
 
     private Sprite[] curSpriteSet;
     private int idxSprite = 0;
@@ -92,6 +95,25 @@ public class test : MonoBehaviour
     public void InputFieldTest()
     {
         string inputText = inputField.text;
-        Debug.Log("Input field text: " + inputText);
+        string lower_str = inputText.ToLower();
+        StringBuilder sb = new StringBuilder();
+        foreach (char c in lower_str)
+        {
+            if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_') {
+                sb.Append(c);
+            }
+        }
+        string answer = sb.ToString();
+        Debug.Log("Input field text: " + answer);
+
+        if (answer == solution)
+        {
+            Debug.Log(inputText + " est la bonne réponse");
+        }
+        else
+        {
+            Debug.Log(inputText + " est la mauvaise réponse");
+        }
+
     }
 }
