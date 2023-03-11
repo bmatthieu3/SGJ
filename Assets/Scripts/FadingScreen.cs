@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class FadingScreen : MonoBehaviour
 {
     private Image screenRend;
-    [SerializeField]private Color colorScreen;
+    //[SerializeField]private Color colorScreen;
     [SerializeField] private float lerpDuration = 2f;
 
     private void Awake()
     {
-        //screenRend = gameObject.GetComponent<Image>();
-        colorScreen = screenRend.color;
+        screenRend = gameObject.GetComponent<Image>();
+        //colorScreen = screenRend.color;
     }
 
     public IEnumerator Fading()
@@ -22,7 +22,9 @@ public class FadingScreen : MonoBehaviour
 
         while (timeElapsed < lerpDuration)
         {
+            var colorScreen = screenRend.color;
             colorScreen.a = Mathf.Lerp(0, 1, timeElapsed / lerpDuration);
+            screenRend.color = colorScreen;
             timeElapsed += Time.deltaTime;
             yield return null;
         }

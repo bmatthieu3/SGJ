@@ -25,8 +25,7 @@ public class LoadSceneManager : MonoBehaviour
     public IEnumerator SwitchScene(string sceneName)
     {
         yield return StartCoroutine(fadingScreen.Fading());
-
-       
+        gameObject.SetActive(true);
         SceneManager.LoadScene(sceneName);
     }
 
