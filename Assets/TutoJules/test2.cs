@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Text;
+using System;
 
 public class test2 : MonoBehaviour
 {
     public GameObject gameObj;
 
-    [SerializeField] private Image nomImage;
+    [SerializeField] private Image image;
     [SerializeField] private InputField inputField;
 
     [SerializeField] private string solution = "grenouille";
 
-    private float nextActionTime = 0.0f;
     public float period = 1.0f;
 
     // Start is called before the first frame update
     void Start()
     {
-        nomImage = gameObj.GetComponent<Image>();
+        image = gameObj.GetComponent<Image>();
         inputField = gameObj.GetComponent<InputField>();
     }
 
@@ -33,6 +33,12 @@ public class test2 : MonoBehaviour
     public void ButtonTest()
     {
         Debug.Log("Boutton fonctionne");
+    }
+
+    public void resetColor()
+    {
+        if (inputField.text == "")
+            inputField.image.color = Color.white;
     }
 
     public void checkSolution()
@@ -52,10 +58,12 @@ public class test2 : MonoBehaviour
         if (answer == solution)
         {
             Debug.Log(inputText + " est la bonne réponse");
+            inputField.image.color = Color.green;
         }
         else
         {
             Debug.Log(inputText + " est la mauvaise réponse");
+            inputField.image.color = Color.red;
         }
 
     }
