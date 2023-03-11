@@ -103,7 +103,7 @@ public class scriptGuessGame : MonoBehaviour
 
     public void resetColor()
     {
-        if (inputField.text == "")
+        if (inputField.text == "" || inputField.text.Length <= 1)
             inputField.image.color = Color.white;
     }
 
