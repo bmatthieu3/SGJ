@@ -44,6 +44,8 @@ public class test2 : MonoBehaviour
     public void checkSolution()
     {
         string inputText = inputField.text;
+        if (inputText == "")
+            return;
         string lower_str = inputText.ToLower();
         StringBuilder sb = new StringBuilder();
         foreach (char c in lower_str)
@@ -65,7 +67,6 @@ public class test2 : MonoBehaviour
             Debug.Log(inputText + " est la mauvaise réponse");
             inputField.image.color = Color.red;
         }
-
     }
 
 }
