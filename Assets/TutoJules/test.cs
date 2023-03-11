@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class test : MonoBehaviour
 {
     public GameObject unNom;
-    [SerializeField ]private Image nomImage;
+    [SerializeField] private Image nomImage;
 
     // Start is called before the first frame update
     void Start()
@@ -24,4 +24,12 @@ public class test : MonoBehaviour
     {
         Debug.Log("Boutton fonctionne");
     }
+
+    public void InputFieldTest()
+    {
+        // string newValue = unNom.GetComponent<InputField>().text;
+        string newValue = "test";
+        Debug.Log("InputField fonctionne : " + newValue);
+    }
+
 }
