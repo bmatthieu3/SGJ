@@ -5509,6 +5509,7 @@ MonoBehaviour:
   noenoeils:
   - {fileID: 1453653676}
   - {fileID: 1838993690}
+  scriptGuessGame: {fileID: 1428302406}
   scoreP1: 4
   scoreP2: 6
 --- !u!1 &1387581483
@@ -5803,9 +5804,12 @@ MonoBehaviour:
   - {fileID: 1956703195}
   - {fileID: 2016483965}
   countdown: {fileID: 1097661301}
+  bet: {fileID: 981838800}
   idxSprite: 0
   startTime: 0
   timeBetweenTwoSpriteRes: 2
+  player2SpeedScore: 0
+  player1PrecisionScore: 0
 --- !u!95 &1428302407
 Animator:
   serializedVersion: 5
@@ -8559,9 +8563,11 @@ MonoBehaviour:
   scriptGuessGame: {fileID: 1428302406}
   countdown: {fileID: 1097661301}
   bet: {fileID: 981838800}
+  score: {fileID: 1321386924}
   canvas4: {fileID: 1128927766}
   canvas5: {fileID: 1764741949}
   canvas6: {fileID: 1826284269}
+  canvas7: {fileID: 1606269292}
 --- !u!4 &2133078644
 Transform:
   m_ObjectHideFlags: 0

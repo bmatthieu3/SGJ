@@ -14,11 +14,34 @@ public class scoreController : MonoBehaviour
     private int limiteBad = 10;
     private int limiteGood = 90;
 
+    // Previous frame
+    [SerializeField] private scriptGuessGame scriptGuessGame;
+
     public int scoreP1 = 4;
     public int scoreP2 = 6;
+
+    IEnumerator StartAfterPrevSlide()
+    {
+        yield return new WaitUntil(() => {
+            var transition = scriptGuessGame.isFrameFinished();
+
+
+            if (transition) {
+                scoreP1 = scriptGuessGame.player1PrecisionScore;
+                scoreP2 = scriptGuessGame.player2SpeedScore;
+                Debug.Log("score1: " + scriptGuessGame.player1PrecisionScore);
+                Debug.Log("score2: " + scriptGuessGame.player2SpeedScore);
+            }
+
+            return transition;
+        });
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(StartAfterPrevSlide());
+
         int scoreTotal = scoreP1 * scoreP2;
         if (scoreP2 >= 2)
             scoreTextP2.text = scoreP2 + " pts";
@@ -53,6 +76,12 @@ public class scoreController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Update the scores
+        if (scriptGuessGame.isFrameFinished()) {
+            scoreP1 = scriptGuessGame.player1PrecisionScore;
+            scoreP2 = scriptGuessGame.player2SpeedScore;
+        }
+        
         int scoreTotal = scoreP1 * scoreP2;
 
         if (scoreP2 >= 2)

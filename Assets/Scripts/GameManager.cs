@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] private scriptGuessGame scriptGuessGame;
     [SerializeField] private countdown countdown;
     [SerializeField] private bet bet;
+    [SerializeField] private scoreController score;
 
     private int idxCanvas = 0;
 
     [SerializeField] private GameObject canvas4;
     [SerializeField] private GameObject canvas5;
     [SerializeField] private GameObject canvas6;
+    [SerializeField] private GameObject canvas7; // score canvas
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
         canvas4.SetActive(true);
         canvas5.SetActive(false);
         canvas6.SetActive(false);
+        canvas7.SetActive(false);
     }
 
     // Update is called once per frame
@@ -39,6 +42,12 @@ public class GameManager : MonoBehaviour
             canvas5.SetActive(false);
             canvas6.SetActive(true);
             idxCanvas = 2;
+        }
+
+        if (idxCanvas == 2 && scriptGuessGame.isFrameFinished()) {
+            canvas6.SetActive(false);
+            canvas7.SetActive(true);
+            idxCanvas = 3;
         }
     }
 }
