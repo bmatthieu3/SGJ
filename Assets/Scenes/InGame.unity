@@ -3630,6 +3630,7 @@ MonoBehaviour:
   - {fileID: 1387581484}
   bet_value: 0
   finished: 0
+  scriptGuessGame: {fileID: 1428302406}
 --- !u!95 &981838801
 Animator:
   serializedVersion: 5
@@ -5805,6 +5806,7 @@ MonoBehaviour:
   - {fileID: 2016483965}
   countdown: {fileID: 1097661301}
   bet: {fileID: 981838800}
+  curSpriteSet: []
   idxSprite: 0
   startTime: 0
   timeBetweenTwoSpriteRes: 2

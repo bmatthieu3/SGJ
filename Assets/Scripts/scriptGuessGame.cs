@@ -30,7 +30,7 @@ public class scriptGuessGame : MonoBehaviour
     [SerializeField] private countdown countdown;
     [SerializeField] private bet bet;
 
-    private Sprite[] curSpriteSet;
+    public Sprite[] curSpriteSet;
     public int idxSprite = 0;
     // Timer
     public float startTime = 0.0f;
@@ -67,9 +67,21 @@ public class scriptGuessGame : MonoBehaviour
         StartCoroutine(StartAfterPrevSlide());
 
         image = GetComponent<Image>();
+    }
 
-        int idxSpriteSet = UnityEngine.Random.Range(0, 4);
+    void ComputeScore(int player1guess, int player2result) {
+        // Speed between 1 and 10:
+        // - 1: the player2 guess at the full resolution (10)
+        // - 10: the players2 guess at the resolution the most degraded (1)
+        player2SpeedScore = 10 - player2result + 1;
+        // Team score avec le player 1, between:
+        // - 10 for good guess
+        // - 1 for opposite guess
+        player1PrecisionScore = 10 - System.Math.Abs(player1guess - player2result);
+        score = player1PrecisionScore * player2SpeedScore;
+    }
 
+    public void SetSpriteSet(int idxSpriteSet) {
         switch (idxSpriteSet) {
             case 0:
                 curSpriteSet = frogSprites;
@@ -90,19 +102,7 @@ public class scriptGuessGame : MonoBehaviour
             default:
                 break;
         } 
-    }
-
-    void ComputeScore(int player1guess, int player2result) {
-        // Speed between 1 and 10:
-        // - 1: the player2 guess at the full resolution (10)
-        // - 10: the players2 guess at the resolution the most degraded (1)
-        player2SpeedScore = 10 - player2result + 1;
-        // Team score avec le player 1, between:
-        // - 10 for good guess
-        // - 1 for opposite guess
-        player1PrecisionScore = 10 - System.Math.Abs(player1guess - player2result);
-        score = player1PrecisionScore * player2SpeedScore;
-    }
+    } 
 
     // Update is called once per frame
     void Update()

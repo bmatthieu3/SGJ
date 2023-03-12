@@ -12,6 +12,8 @@ public class bet : MonoBehaviour
 
     public bool finished = false;
 
+    [SerializeField] private scriptGuessGame scriptGuessGame;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,10 @@ public class bet : MonoBehaviour
         bet_value = 1;
         cursor.transform.position = cursorTransforms[0 % cursorTransforms.Length].position;
 
+        int idxSpriteSet = UnityEngine.Random.Range(0, 4);
+        scriptGuessGame.SetSpriteSet(idxSpriteSet);
+
+        image.sprite = scriptGuessGame.curSpriteSet[scriptGuessGame.curSpriteSet.Length - 1];
     }
 
     public bool isFrameFinished() {
@@ -36,9 +42,9 @@ public class bet : MonoBehaviour
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(seconds);
 
-        //After we have waited 5 seconds print the time again.
+        //After we have waited n seconds print the time again.
         finished = true;
-    } 
+    }
 
     public void ButtonTest(int bet)
     {
