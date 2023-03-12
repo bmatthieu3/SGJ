@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] GameObject screen2;
     [SerializeField] GameObject screen3;
+    [SerializeField] GameObject screen35;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +61,12 @@ public class GameManager : MonoBehaviour
     {
         screen3.SetActive(true);
         screen2.SetActive(false);
+    }
+
+    public void goTuto()
+    {
+        screen3.SetActive(false);
+        screen35.SetActive(true);
     }
 
     public void GoScreen4()
