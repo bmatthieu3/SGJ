@@ -11,6 +11,9 @@ public class scoreController : MonoBehaviour
     [SerializeField] private Sprite[] scoreSprites;
     [SerializeField] private Image[] noenoeils;
 
+    [SerializeField] private LoadSceneManager loadSceneManager;
+
+
     private int limiteBad = 10;
     private int limiteGood = 90;
 
@@ -110,5 +113,15 @@ public class scoreController : MonoBehaviour
             noenoeils[0].sprite = scoreSprites[2]; // très heureux
             noenoeils[1].sprite = scoreSprites[2]; // très heureux
         }
+    }
+
+    public void ButtonQuitGame()
+    {
+        loadSceneManager.QuitGame();
+    }
+
+    public void ButtonRestartGame()
+    {
+        loadSceneManager.RestartScene();
     }
 }
