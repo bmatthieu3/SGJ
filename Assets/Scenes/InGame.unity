@@ -7578,6 +7578,17 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 36d42e85fa4e24ad09972c9cf06b16d0, type: 3}
   - {fileID: 21300000, guid: 93ab92a42f66248918aff4f07d5da3a1, type: 3}
   - {fileID: 21300000, guid: 81bd842bede884512a4d46d3f7173c29, type: 3}
+  mugSprites:
+  - {fileID: 21300000, guid: 1b7e827f2474b476782e03f1ba4f7945, type: 3}
+  - {fileID: 21300000, guid: a652c0c6535e041f28378ee51ba917ff, type: 3}
+  - {fileID: 21300000, guid: 87dde257a2dbc41a089ce5cee9cb59e5, type: 3}
+  - {fileID: 21300000, guid: 5d1353cde304044c0a6451947e356834, type: 3}
+  - {fileID: 21300000, guid: 8079f9b4fb6264d32b8a67caecde3450, type: 3}
+  - {fileID: 21300000, guid: 526589eb82f9c4e54ac09a31e67e6f2e, type: 3}
+  - {fileID: 21300000, guid: 52232ae5ab0c74d629a3a834493476c6, type: 3}
+  - {fileID: 21300000, guid: f08a02ffaeb1445e6b85c02432f1055b, type: 3}
+  - {fileID: 21300000, guid: 995fc225723374cd88f1defc96279523, type: 3}
+  - {fileID: 21300000, guid: 9e219b85515f04acb945196538352c48, type: 3}
   solutions: []
   cursor: {fileID: 374630192}
   cursorTransforms:

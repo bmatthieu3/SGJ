@@ -21,6 +21,7 @@ public class scriptGuessGame : MonoBehaviour
     [SerializeField] public Sprite[] snakeSprites;
     [SerializeField] public Sprite[] potatosSprites;
     [SerializeField] public Sprite[] octopusSprites;
+    [SerializeField] public Sprite[] mugSprites;
     // Cursor and graduate sprites
     [SerializeField] private string[] solutions;
     // Cursor/Graduate
@@ -86,27 +87,31 @@ public class scriptGuessGame : MonoBehaviour
         switch (idxSpriteSet) {
             case 0:
                 curSpriteSet = frogSprites;
-                solutions = new string[] {"grenouille", "frog", "froggy", "froggie", "crapeau"};
+                solutions = new string[] {"grenouille", "frog", "froggy", "froggie", "crapeau", "ha"};
                 break;
             case 1:
                 curSpriteSet = eyeSprites;
-                solutions = new string[] {"oeil", "eye", "eyes", "œil"};
+                solutions = new string[] {"oeil", "eye", "eyes", "œil", "noenoeil", "ha"};
                 break;
             case 2:
                 curSpriteSet = pizzaSprites;
-                solutions = new string[] {"pizza", "pizz", "piza", "pizzz"};
+                solutions = new string[] {"pizza", "pizz", "piza", "pizzz", "ha"};
                 break;
             case 3:
                 curSpriteSet = snakeSprites;
-                solutions = new string[] {"serpent", "snake", "snaky", "snaky snake"};
+                solutions = new string[] {"serpent", "snake", "snaky", "snaky snake", "ha"};
                 break;
             case 4:
                 curSpriteSet = potatosSprites;
-                solutions = new string[] {"patate", "pomme de terre", "pommes de terre", "patates", "potatos", "potato", "cartof", "kartoffel"};
+                solutions = new string[] {"patate", "pomme de terre", "pommes de terre", "patates", "potatos", "potato", "cartof", "kartoffel", "ha"};
                 break;
             case 5:
                 curSpriteSet = octopusSprites;
-                solutions = new string[] {"poulpe", "poulp", "octopus", "pieuvre", "poulpi", "octopussy", "octopussy poulpe"};
+                solutions = new string[] {"poulpe", "poulp", "octopus", "pieuvre", "poulpi", "octopussy", "octopussy poulpe", "ha"};
+                break;
+            case 6:
+                curSpriteSet = mugSprites;
+                solutions = new string[] {"mug", "tasse", "verre", "gamejam", "shadok", "ha"};
                 break;
             default:
                 break;
