@@ -9094,6 +9094,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc0933251a0bb24ba55bf24234a2800, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scriptGuessGame: {fileID: 1428302406}
+  countdown: {fileID: 1097661301}
+  bet: {fileID: 981838800}
   canvas4: {fileID: 1128927766}
   canvas5: {fileID: 1764741949}
   canvas6: {fileID: 1826284269}
