@@ -19,15 +19,15 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        //if (instance == null)
+        //{
+        //    instance = this;
+        //    DontDestroyOnLoad(instance);
+        //}
+        //else
+        //{
+        //    Destroy(gameObject);
+        //}
 
         audioSource = gameObject.GetComponent<AudioSource>();
     }
@@ -57,6 +57,21 @@ public class SoundManager : MonoBehaviour
         {
             buttonPopGrave.Play();
         }
+    }
+
+    public void PlaySoundClic()
+    {
+        soundClic.Play();
+    }
+
+    public void PlayWin()
+    {
+        soundWin.Play();
+    }
+
+    public void PlayFail()
+    {
+        soundFail.Play();
     }
 
 
