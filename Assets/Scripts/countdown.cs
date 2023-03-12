@@ -17,6 +17,8 @@ public class countdown : MonoBehaviour
     // Previous frame
     [SerializeField] private bet bet;
 
+    private SoundManager soundManager;
+
     IEnumerator StartAfterPrevSlide()
     {
         yield return new WaitUntil(() => {
@@ -30,6 +32,12 @@ public class countdown : MonoBehaviour
             return transition;
         });
     }
+
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +63,7 @@ public class countdown : MonoBehaviour
                 return;
             }
 
+            soundManager.PlaySoundCompteur();
             nextActionTime += timeBetweenTwoSpriteRes;
             image.sprite = numbersSprites[idxSprite]; // Change the sprite of the Image object
             idxSprite += 1;

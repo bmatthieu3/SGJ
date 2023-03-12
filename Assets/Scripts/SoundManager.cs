@@ -74,5 +74,15 @@ public class SoundManager : MonoBehaviour
         soundFail.Play();
     }
 
+   public void PlaySoundCompteur()
+    {
+        buttonPopGrave.Play();
+    }
+
+    public void StopMainSource()
+    {
+        audioSource.Stop();
+    }
+
 
 }

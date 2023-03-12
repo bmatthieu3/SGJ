@@ -46,9 +46,15 @@ public class scriptGuessGame : MonoBehaviour
 
     // game finished
     private bool finished = false;
+
+    //Sound
+    private SoundManager soundManager;
+
     void Awake()
     {
         Debug.Log("Awake");
+        soundManager = FindObjectOfType<SoundManager>();
+
     }
 
     IEnumerator StartAfterPrevSlide()
@@ -134,6 +140,8 @@ public class scriptGuessGame : MonoBehaviour
 
                 finished = true;
             } else {
+                soundManager.PlaySoundClic();
+
                 // Change the sprite here
                 image.sprite = curSpriteSet[idxSprite % curSpriteSet.Length]; // Change the sprite of the Image object
                 // Set a new position for the cursor

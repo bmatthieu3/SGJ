@@ -22,11 +22,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject screen35;
 
     private SoundManager soundManager;
+    private scoreController scoreContr;
 
     private void Awake()
     {
         soundManager = FindObjectOfType<SoundManager>();
         soundManager.SetMusicGame();
+
+        scoreContr = FindObjectOfType<scoreController>();
     }
 
 
@@ -64,7 +67,19 @@ public class GameManager : MonoBehaviour
             canvas7.SetActive(true);
             idxCanvas = 3;
 
-            soundManager.SetMusicMenuOrScore();
+            if (scoreContr.isFail)
+            {
+                soundManager.PlayFail();
+            }
+            else if (scoreContr.isWin)
+            {
+                soundManager.PlayWin();
+            }
+            else
+            {
+                soundManager.SetMusicMenuOrScore();
+            }
+         
         }
     }
 

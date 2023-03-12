@@ -23,6 +23,10 @@ public class scoreController : MonoBehaviour
     public int scoreP1 = 4;
     public int scoreP2 = 6;
 
+    private SoundManager soundManager;
+    public bool isFail = false;
+    public bool isWin = false;
+
     IEnumerator StartAfterPrevSlide()
     {
         yield return new WaitUntil(() => {
@@ -38,6 +42,11 @@ public class scoreController : MonoBehaviour
 
             return transition;
         });
+    }
+
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
     }
 
     // Start is called before the first frame update
@@ -58,6 +67,8 @@ public class scoreController : MonoBehaviour
             scoreTextTotal.text = scoreTotal + " pt";
 
         Debug.Log(scoreSprites.Length);
+
+        
 
         if (scoreTotal < limiteBad)
         {
@@ -102,26 +113,36 @@ public class scoreController : MonoBehaviour
         {
             noenoeils[0].sprite = scoreSprites[0]; // déçu
             noenoeils[1].sprite = scoreSprites[0]; // déçu
+
+            isFail = true;
+            isWin = false;
         }
         else if (scoreTotal < limiteGood)
         {
             noenoeils[0].sprite = scoreSprites[1]; // heureux
             noenoeils[1].sprite = scoreSprites[1]; // heureux
+
+            isFail = false;
+            isWin = false;
         }
         else
         {
             noenoeils[0].sprite = scoreSprites[2]; // très heureux
             noenoeils[1].sprite = scoreSprites[2]; // très heureux
+            isFail = false;
+            isWin = true;
         }
     }
 
     public void ButtonQuitGame()
     {
+        soundManager.PlaySoundButton();
         loadSceneManager.QuitGame();
     }
 
     public void ButtonRestartGame()
     {
+        soundManager.PlaySoundButton();
         loadSceneManager.RestartScene();
     }
 }
