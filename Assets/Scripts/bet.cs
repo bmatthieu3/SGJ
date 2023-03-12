@@ -48,6 +48,8 @@ public class bet : MonoBehaviour
 
     public void ButtonTest(int bet)
     {
+        FindObjectOfType<SoundManager>().PlaySoundButton();
+
         Debug.Log("Pari : " + bet);
         bet_value = bet;
         int idxSprite = bet - 1;
