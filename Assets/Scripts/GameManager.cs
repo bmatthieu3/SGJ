@@ -70,18 +70,21 @@ public class GameManager : MonoBehaviour
 
     public void GoScreen3()
     {
+        soundManager.PlaySoundButton();
         screen3.SetActive(true);
         screen2.SetActive(false);
     }
 
     public void goTuto()
     {
+        soundManager.PlaySoundButton();
         screen3.SetActive(false);
         screen35.SetActive(true);
     }
 
     public void GoScreen4()
     {
+        soundManager.PlaySoundButton();
         canvas23.SetActive(false);
         canvas4.SetActive(true);
     }
