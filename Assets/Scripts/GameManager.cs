@@ -11,10 +11,14 @@ public class GameManager : MonoBehaviour
 
     private int idxCanvas = 0;
 
+    [SerializeField] private GameObject canvas23;
     [SerializeField] private GameObject canvas4;
     [SerializeField] private GameObject canvas5;
     [SerializeField] private GameObject canvas6;
     [SerializeField] private GameObject canvas7; // score canvas
+
+    [SerializeField] GameObject screen2;
+    [SerializeField] GameObject screen3;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +27,8 @@ public class GameManager : MonoBehaviour
         countdown = FindObjectOfType<countdown>();
         bet = FindObjectOfType<bet>();*/
 
-        canvas4.SetActive(true);
+        canvas23.SetActive(true);
+        canvas4.SetActive(false);
         canvas5.SetActive(false);
         canvas6.SetActive(false);
         canvas7.SetActive(false);
@@ -49,5 +54,17 @@ public class GameManager : MonoBehaviour
             canvas7.SetActive(true);
             idxCanvas = 3;
         }
+    }
+
+    public void GoScreen3()
+    {
+        screen3.SetActive(true);
+        screen2.SetActive(false);
+    }
+
+    public void GoScreen4()
+    {
+        canvas23.SetActive(false);
+        canvas4.SetActive(true);
     }
 }
