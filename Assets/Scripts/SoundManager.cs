@@ -10,6 +10,13 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioClip musicMenuScore;
     [SerializeField] private AudioClip musicGame;
 
+    [SerializeField] private AudioSource buttonPopGrave;
+    [SerializeField] private AudioSource buttonPopAigu;
+    [SerializeField] private AudioSource soundClic;
+    [SerializeField] private AudioSource soundWin;
+    [SerializeField] private AudioSource soundFail;
+
+
     private void Awake()
     {
         if (instance == null)
@@ -35,6 +42,21 @@ public class SoundManager : MonoBehaviour
     {
         audioSource.clip = musicGame;
         audioSource.Play();
+    }
+
+
+    public void PlaySoundButton()
+    {
+        int rand = Random.Range(0, 2);
+ 
+        if (rand == 0)
+        {
+            buttonPopAigu.Play();
+        }
+        else
+        {
+            buttonPopGrave.Play();
+        }
     }
 
 

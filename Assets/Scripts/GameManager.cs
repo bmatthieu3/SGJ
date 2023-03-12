@@ -21,6 +21,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject screen3;
     [SerializeField] GameObject screen35;
 
+    private SoundManager soundManager;
+
+    private void Awake()
+    {
+        soundManager = FindObjectOfType<SoundManager>();
+        soundManager.SetMusicGame();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,6 +63,8 @@ public class GameManager : MonoBehaviour
             canvas6.SetActive(false);
             canvas7.SetActive(true);
             idxCanvas = 3;
+
+            soundManager.SetMusicMenuOrScore();
         }
     }
 

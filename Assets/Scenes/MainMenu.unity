@@ -1999,9 +1999,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1072796613155638225, guid: 4e47fe426a7e66b4197847846ec6d0e6, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1639700428522582767, guid: 4e47fe426a7e66b4197847846ec6d0e6, type: 3}
       propertyPath: Loop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2143980236991913797, guid: 4e47fe426a7e66b4197847846ec6d0e6, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922244607786564525, guid: 4e47fe426a7e66b4197847846ec6d0e6, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962424945094936514, guid: 4e47fe426a7e66b4197847846ec6d0e6, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6963236971027718603, guid: 4e47fe426a7e66b4197847846ec6d0e6, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e47fe426a7e66b4197847846ec6d0e6, type: 3}
