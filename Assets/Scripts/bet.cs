@@ -8,6 +8,7 @@ public class bet : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private GameObject cursor;
     [SerializeField] public Transform[] cursorTransforms;
+    [SerializeField] private GameObject[] buttonObject;
     public int bet_value;
 
     public bool finished = false;
@@ -48,6 +49,11 @@ public class bet : MonoBehaviour
 
     public void ButtonTest(int bet)
     {
+        for (int i = 0; i < buttonObject.Length; i++)
+        {
+            buttonObject[i].SetActive(false);
+        }
+
         FindObjectOfType<SoundManager>().PlaySoundButton();
 
         Debug.Log("Pari : " + bet);
