@@ -75,6 +75,8 @@ public class scriptGuessGame : MonoBehaviour
         StartCoroutine(StartAfterPrevSlide());
 
         image = GetComponent<Image>();
+
+        inputField.ActivateInputField();
     }
 
     void ComputeScore(int player1guess, int player2result) {
@@ -127,6 +129,14 @@ public class scriptGuessGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (inputField.gameObject.activeSelf)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Return))
+        //    {
+        //        inputField.ActivateInputField();
+        //    }
+        //}
+
         if (!finished && (Time.time - startTime) > nextActionTime) {
             nextActionTime += timeBetweenTwoSpriteRes;
 
