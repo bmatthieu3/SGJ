@@ -115,7 +115,7 @@ public class scriptGuessGame : MonoBehaviour
             // => the game ends without giving any score
             if (idxSprite == curSpriteSet.Length) {
                 int player1guess = bet.bet_value;
-                int player2perf = idxSprite + 1;
+                int player2perf = idxSprite;
                 ComputeScore(player1guess, player2perf);
 
                 finished = true;
@@ -172,7 +172,7 @@ public class scriptGuessGame : MonoBehaviour
             inputField.image.color = Color.green;
 
             int player1guess = bet.bet_value;
-            int player2perf = idxSprite + 1;
+            int player2perf = idxSprite;
             ComputeScore(player1guess, player2perf);
 
             finished = true;
