@@ -28,6 +28,7 @@ public class scriptGuessGame : MonoBehaviour
 
     // Previous frame
     [SerializeField] private countdown countdown;
+    [SerializeField] private bet bet;
 
     private Sprite[] curSpriteSet;
     public int idxSprite = 0;
@@ -38,8 +39,8 @@ public class scriptGuessGame : MonoBehaviour
 
     // Player score
     private int score = 0;
-    private int player2SpeedScore = 0;
-    private int player1PrecisionScore = 0;
+    public int player2SpeedScore = 0;
+    public int player1PrecisionScore = 0;
 
     // game finished
     private bool finished = false;
@@ -95,12 +96,12 @@ public class scriptGuessGame : MonoBehaviour
         // Speed between 1 and 10:
         // - 1: the player2 guess at the full resolution (10)
         // - 10: the players2 guess at the resolution the most degraded (1)
-        int Player2Speed = 10 - player2result + 1;
+        player2SpeedScore = 10 - player2result + 1;
         // Team score avec le player 1, between:
         // - 10 for good guess
         // - 1 for opposite guess
-        int Player1Precision = 10 - System.Math.Abs(player1guess - player2result);
-        score = Player1Precision * Player2Speed;
+        player1PrecisionScore = 10 - System.Math.Abs(player1guess - player2result);
+        score = player1PrecisionScore * player2SpeedScore;
     }
 
     // Update is called once per frame
@@ -165,6 +166,10 @@ public class scriptGuessGame : MonoBehaviour
         {
             Debug.Log(inputText + " est la bonne réponse");
             inputField.image.color = Color.green;
+
+            int player1guess = bet.bet_value;
+            int player2perf = idxSprite + 1;
+            ComputeScore(player1guess, player2perf);
 
             finished = true;
         }
