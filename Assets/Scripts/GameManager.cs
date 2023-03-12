@@ -67,18 +67,7 @@ public class GameManager : MonoBehaviour
             canvas7.SetActive(true);
             idxCanvas = 3;
 
-            if (scoreContr.isFail)
-            {
-                soundManager.PlayFail();
-            }
-            else if (scoreContr.isWin)
-            {
-                soundManager.PlayWin();
-            }
-            else
-            {
-                soundManager.SetMusicMenuOrScore();
-            }
+       
          
         }
     }

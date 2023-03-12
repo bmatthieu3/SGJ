@@ -7202,6 +7202,8 @@ MonoBehaviour:
   scriptGuessGame: {fileID: 1428302406}
   scoreP1: 4
   scoreP2: 6
+  isFail: 0
+  isWin: 0
 --- !u!1 &1326859533
 GameObject:
   m_ObjectHideFlags: 0

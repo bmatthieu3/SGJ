@@ -47,16 +47,18 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySoundButton()
     {
-        int rand = Random.Range(0, 2);
- 
-        if (rand == 0)
-        {
-            buttonPopAigu.Play();
-        }
-        else
-        {
-            buttonPopGrave.Play();
-        }
+        //int rand = Random.Range(0, 2);
+
+        //if (rand == 0)
+        //{
+        //    buttonPopAigu.Play();
+        //}
+        //else
+        //{
+        //    buttonPopGrave.Play();
+        //}
+
+        buttonPopAigu.Play();
     }
 
     public void PlaySoundClic()

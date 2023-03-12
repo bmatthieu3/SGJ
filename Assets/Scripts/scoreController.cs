@@ -114,23 +114,18 @@ public class scoreController : MonoBehaviour
             noenoeils[0].sprite = scoreSprites[0]; // déçu
             noenoeils[1].sprite = scoreSprites[0]; // déçu
 
-            isFail = true;
-            isWin = false;
         }
         else if (scoreTotal < limiteGood)
         {
             noenoeils[0].sprite = scoreSprites[1]; // heureux
             noenoeils[1].sprite = scoreSprites[1]; // heureux
 
-            isFail = false;
-            isWin = false;
         }
         else
         {
             noenoeils[0].sprite = scoreSprites[2]; // très heureux
             noenoeils[1].sprite = scoreSprites[2]; // très heureux
-            isFail = false;
-            isWin = true;
+       
         }
     }
 
