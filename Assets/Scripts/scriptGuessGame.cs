@@ -114,6 +114,10 @@ public class scriptGuessGame : MonoBehaviour
             // has not guessed anything,
             // => the game ends without giving any score
             if (idxSprite == curSpriteSet.Length) {
+                int player1guess = bet.bet_value;
+                int player2perf = idxSprite + 1;
+                ComputeScore(player1guess, player2perf);
+
                 finished = true;
             } else {
                 // Change the sprite here
