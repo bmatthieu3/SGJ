@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
             canvas7.SetActive(true);
             idxCanvas = 3;
 
-       
+            soundManager.SetMusicMenuOrScore();
          
         }
     }
