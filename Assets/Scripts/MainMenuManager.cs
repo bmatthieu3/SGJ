@@ -21,23 +21,28 @@ public class MainMenuManager : MonoBehaviour
 
     public void StartGame(string nameScene)
     {
+        soundManager.PlaySoundButton();
         StartCoroutine(loadSceneManager.SwitchScene(nameScene));   
     }
 
     public void ButtonQuitGame()
     {
+        soundManager.PlaySoundButton();
         loadSceneManager.QuitGame();
     }
 
     public void GoToCredit()
     {
+        soundManager.PlaySoundButton();
         creditMenu.SetActive(true);
         firstMenu.SetActive(false);
     }
 
     public void GoToFirstMenu()
     {
+        soundManager.PlaySoundButton();
         firstMenu.SetActive(true);
         creditMenu.SetActive(false);
     }
+
 }
