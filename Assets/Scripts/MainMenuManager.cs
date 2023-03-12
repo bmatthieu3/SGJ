@@ -6,13 +6,17 @@ using UnityEngine;
 public class MainMenuManager : MonoBehaviour
 {
     private LoadSceneManager loadSceneManager;
+    private SoundManager soundManager;
 
     [SerializeField] GameObject firstMenu;
     [SerializeField] GameObject creditMenu;
 
     private void Awake()
     {
-        loadSceneManager = FindObjectOfType<LoadSceneManager>();    
+        loadSceneManager = FindObjectOfType<LoadSceneManager>();
+        soundManager = FindObjectOfType<SoundManager>();
+
+        soundManager.SetMusicMenuOrScore();
     }
 
     public void StartGame(string nameScene)
