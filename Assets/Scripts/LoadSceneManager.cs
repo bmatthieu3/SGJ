@@ -6,26 +6,16 @@ using UnityEditor;
 
 public class LoadSceneManager : MonoBehaviour
 {
-    private static LoadSceneManager instance;
     private FadingScreen fadingScreen;
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
         fadingScreen = FindObjectOfType<FadingScreen>();
+        StartCoroutine(fadingScreen.Fading());
     }
     
     public IEnumerator SwitchScene(string sceneName)
     {
-        yield return StartCoroutine(fadingScreen.Fading());
+        yield return StartCoroutine(fadingScreen.Increase());
         gameObject.SetActive(true);
         SceneManager.LoadScene(sceneName);
     }
