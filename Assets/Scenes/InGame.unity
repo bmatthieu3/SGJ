@@ -7556,6 +7556,28 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b17cab8296b3449b0bdf351fe5cd6d1a, type: 3}
   - {fileID: 21300000, guid: 0d3b1572c7c9f4d9fa323c1bffe177c1, type: 3}
   - {fileID: 21300000, guid: f26cf00b1a71a4c9a8b1572f317c578b, type: 3}
+  potatosSprites:
+  - {fileID: 21300000, guid: 1c8a905a3cec4418096ef23a209a1ce6, type: 3}
+  - {fileID: 21300000, guid: 0867aa9ef1ef34e2e9035411818550ba, type: 3}
+  - {fileID: 21300000, guid: 781991b0efb54428b9231c5a511d6dce, type: 3}
+  - {fileID: 21300000, guid: 26de4bc6853694b52abf041e76e1a178, type: 3}
+  - {fileID: 21300000, guid: bd7ecced8fda641db97cd5b74a299514, type: 3}
+  - {fileID: 21300000, guid: 0e501904d8ac243b6ae9ad0d00e32019, type: 3}
+  - {fileID: 21300000, guid: f4c990e4d5fd74e1faa14c1263fea568, type: 3}
+  - {fileID: 21300000, guid: 6ca6c065ced014ec8b1f70c9d6c77ebd, type: 3}
+  - {fileID: 21300000, guid: 43dd2ee3ee80f41788f4de1c922058fd, type: 3}
+  - {fileID: 21300000, guid: 4e2deb96eefed4d7aa8c7b8f3a9e04fe, type: 3}
+  octopusSprites:
+  - {fileID: 21300000, guid: fcb282e3bb969473bbe8440cfce0a476, type: 3}
+  - {fileID: 21300000, guid: 60445f7227506496a89e4af77b1a839b, type: 3}
+  - {fileID: 21300000, guid: 5abad31cd513f462f8b3b5929129fa9c, type: 3}
+  - {fileID: 21300000, guid: 1369dae8fdfe044669442a11ba5eb577, type: 3}
+  - {fileID: 21300000, guid: a745b918aa2d6451a8f1bc69a49371b3, type: 3}
+  - {fileID: 21300000, guid: b0dff385aa10e4201b8a0dee5979c143, type: 3}
+  - {fileID: 21300000, guid: 533983598c1f04496b9e52b8a6f0e19b, type: 3}
+  - {fileID: 21300000, guid: 36d42e85fa4e24ad09972c9cf06b16d0, type: 3}
+  - {fileID: 21300000, guid: 93ab92a42f66248918aff4f07d5da3a1, type: 3}
+  - {fileID: 21300000, guid: 81bd842bede884512a4d46d3f7173c29, type: 3}
   solutions: []
   cursor: {fileID: 374630192}
   cursorTransforms:

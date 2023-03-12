@@ -19,7 +19,8 @@ public class scriptGuessGame : MonoBehaviour
     [SerializeField] public Sprite[] eyeSprites;
     [SerializeField] public Sprite[] pizzaSprites;
     [SerializeField] public Sprite[] snakeSprites;
-
+    [SerializeField] public Sprite[] potatosSprites;
+    [SerializeField] public Sprite[] octopusSprites;
     // Cursor and graduate sprites
     [SerializeField] private string[] solutions;
     // Cursor/Graduate
@@ -85,7 +86,7 @@ public class scriptGuessGame : MonoBehaviour
         switch (idxSpriteSet) {
             case 0:
                 curSpriteSet = frogSprites;
-                solutions = new string[] {"grenouille", "frog", "froggy", "froggie"};
+                solutions = new string[] {"grenouille", "frog", "froggy", "froggie", "crapeau"};
                 break;
             case 1:
                 curSpriteSet = eyeSprites;
@@ -98,6 +99,14 @@ public class scriptGuessGame : MonoBehaviour
             case 3:
                 curSpriteSet = snakeSprites;
                 solutions = new string[] {"serpent", "snake", "snaky", "snaky snake"};
+                break;
+            case 4:
+                curSpriteSet = potatosSprites;
+                solutions = new string[] {"patate", "pomme de terre", "pommes de terre", "patates", "potatos", "potato", "cartof", "kartoffel"};
+                break;
+            case 5:
+                curSpriteSet = octopusSprites;
+                solutions = new string[] {"poulpe", "poulp", "octopus", "pieuvre", "poulpi", "octopussy", "octopussy poulpe"};
                 break;
             default:
                 break;
@@ -149,7 +158,7 @@ public class scriptGuessGame : MonoBehaviour
         StringBuilder sb = new StringBuilder();
         foreach (char c in lower_str)
         {
-            if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == '.' || c == '_') {
+            if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ' || c == 'œ') {
                 sb.Append(c);
             }
         }

@@ -22,7 +22,7 @@ public class bet : MonoBehaviour
         bet_value = 1;
         cursor.transform.position = cursorTransforms[0 % cursorTransforms.Length].position;
 
-        int idxSpriteSet = UnityEngine.Random.Range(0, 4);
+        int idxSpriteSet = UnityEngine.Random.Range(0, 6);
         scriptGuessGame.SetSpriteSet(idxSpriteSet);
 
         image.sprite = scriptGuessGame.curSpriteSet[scriptGuessGame.curSpriteSet.Length - 1];
