@@ -31,6 +31,15 @@ public class bet : MonoBehaviour
         
     }
 
+    IEnumerator SetFinishedInSeconds(float seconds)
+    {
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(seconds);
+
+        //After we have waited 5 seconds print the time again.
+        finished = true;
+    } 
+
     public void ButtonTest(int bet)
     {
         Debug.Log("Pari : " + bet);
@@ -38,6 +47,6 @@ public class bet : MonoBehaviour
         int idxSprite = bet - 1;
         cursor.transform.position = cursorTransforms[idxSprite % cursorTransforms.Length].position;
 
-        finished = true;
+        StartCoroutine(SetFinishedInSeconds(2.0f));
     }
 }

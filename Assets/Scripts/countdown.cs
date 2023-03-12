@@ -7,7 +7,7 @@ public class countdown : MonoBehaviour
 {
     [SerializeField] private Image image;
     [SerializeField] public Sprite[] numbersSprites;
-    private float timeBetweenTwoSpriteRes = 1.0f;
+    private float timeBetweenTwoSpriteRes = 0.8f;
     private float nextActionTime = 0.0f;
     private float startTime = 0.0f;
     private int idxSprite = 0;
@@ -23,6 +23,8 @@ public class countdown : MonoBehaviour
             var transition = bet.isFrameFinished();
             if (transition) {
                 startTime = Time.time;
+                nextActionTime = timeBetweenTwoSpriteRes;
+                idxSprite = 0;
             }
 
             return transition;
@@ -35,7 +37,6 @@ public class countdown : MonoBehaviour
         StartCoroutine(StartAfterPrevSlide());
 
         image = GetComponent<Image>();
-        nextActionTime = Time.time + timeBetweenTwoSpriteRes;
         numSpriteSets = numbersSprites.Length;
     }
 
@@ -58,8 +59,5 @@ public class countdown : MonoBehaviour
             image.sprite = numbersSprites[idxSprite]; // Change the sprite of the Image object
             idxSprite += 1;
         }
-
-        
     }
-
 }
