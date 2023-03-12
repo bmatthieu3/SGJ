@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -20,12 +20,9 @@ public class MainMenuManager : MonoBehaviour
         StartCoroutine(loadSceneManager.SwitchScene(nameScene));   
     }
 
-    public void QuitGame()
+    public void ButtonQuitGame()
     {
-#if UNITY_EDITOR
-        EditorApplication.isPlaying = false;
-#endif
-        Application.Quit();
+        loadSceneManager.QuitGame();
     }
 
     public void GoToCredit()
