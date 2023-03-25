@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Text;
 using System;
+using System.IO;
 
 /*
  * This script is used to manage the game : Player 2 has to guess the image, which is displayed on the screen.
@@ -22,6 +23,8 @@ public class scriptGuessGame : MonoBehaviour
     [SerializeField] public Sprite[] potatosSprites;
     [SerializeField] public Sprite[] octopusSprites;
     [SerializeField] public Sprite[] mugSprites;
+
+    public ImageData[] imageList;
     // Cursor and graduate sprites
     [SerializeField] private string[] solutions;
     // Cursor/Graduate
@@ -50,6 +53,24 @@ public class scriptGuessGame : MonoBehaviour
     //Sound
     private SoundManager soundManager;
 
+
+    [System.Serializable]
+    public class ImageData
+    {
+        public int id;
+        public string name;
+        public string path;
+        public string source;
+        public string license;
+        public string[] solution;
+    }
+
+    [System.Serializable]
+    public class ImageDataList
+    {
+        public ImageData[] images;
+    }
+
     void Awake()
     {
         Debug.Log("Awake");
@@ -77,6 +98,17 @@ public class scriptGuessGame : MonoBehaviour
         image = GetComponent<Image>();
 
         inputField.ActivateInputField();
+
+        /*Debug.Log("imageList: " + imageList);
+        foreach (ImageData exampleData in imageList)
+        {
+            Debug.Log("ID: " + exampleData.id);
+            Debug.Log("Name: " + exampleData.name);
+            Debug.Log("Path: " + exampleData.path);
+            Debug.Log("Source: " + exampleData.source);
+            Debug.Log("License: " + exampleData.license);
+            Debug.Log("Solutions: " + string.Join(", ", exampleData.solution));
+        }*/
     }
 
     void ComputeScore(int player1guess, int player2result) {

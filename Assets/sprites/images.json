@@ -1,0 +1,69 @@
+{
+    "images": 
+    [
+        {
+            "id": 0,
+            "name": "frog",
+            "path": "sprites/guess-images/frog.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:Marsh_frog_(Pelophylax_ridibundus).jpg",
+            "license": "CC BY-SA 4.0",
+            "solution": ["grenouille", "frog", "froggy", "froggie", "crapeau", "ha"]
+        },
+        {
+            "id": 1,
+            "name": "eye",
+            "path": "sprites/guess-images/eye.jpg",
+            "source": "TODO",
+            "license": "TODO",
+            "solution": ["oeil", "eye", "eyes", "œil", "noenoeil", "ha"]
+        },
+        {
+            "id": 2,
+            "name": "pizza",
+            "path": "sprites/guess-images/pizza.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:Pizza_Margherita_stu_spivack.jpg",
+            "license": "CC BY-SA 2.0",
+            "solution": ["pizza", "pizz", "piza", "pizzz", "margherita", "ha"]
+        },
+        {
+            "id": 3,
+            "name": "snake",
+            "path": "sprites/guess-images/snake.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:Atheris_hispida.jpg",
+            "license": "CC BY 2.0",
+            "solution": ["serpent", "snake", "snaky", "snaky snake", "ha"]
+        },
+        {
+            "id": 4,
+            "name": "patate",
+            "path": "sprites/guess-images/patate.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:Jersey_Royal_potatoes.jpg",
+            "license": "Public Domain",
+            "solution": ["patate", "pomme de terre", "pommes de terre", "patates", "potatos", "potato", "cartof", "kartoffel", "ha"]
+        },
+        {
+            "id": 5,
+            "name": "poulpe",
+            "path": "sprites/guess-images/poulpe.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:Octopus3.jpg",
+            "license": "CC BY-SA 3.0",
+            "solution": ["poulpe", "poulp", "octopus", "pieuvre", "poulpi", "octopussy", "octopussy poulpe", "ha"]
+        },
+        {
+            "id": 6,
+            "name": "mug",
+            "path": "sprites/guess-images/mug.jpg",
+            "source": "Sam",
+            "license": "TODO",
+            "solution": ["mug", "tasse", "verre", "gamejam", "shadok", "ha"]
+        },
+        {
+            "id": 7,
+            "name": "bretzel",
+            "path": "sprites/guess-images/bretzel.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:Pretzel_01-14.jpg",
+            "license": "CC BY-SA 3.0",
+            "solution": ["bretzel", "pretzel", "bretz", "pretz", "bretzels", "pretzels", "bretzle", "pretzle", "bretzles", "pretzles", "bretzels pretzels", "pretzels bretzels"]
+        }
+    ]
+}

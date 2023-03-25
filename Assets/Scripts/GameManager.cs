@@ -11,11 +11,11 @@ public class GameManager : MonoBehaviour
 
     private int idxCanvas = 0;
 
-    [SerializeField] private GameObject canvas23;
-    [SerializeField] private GameObject canvas4;
-    [SerializeField] private GameObject canvas5;
-    [SerializeField] private GameObject canvas6;
-    [SerializeField] private GameObject canvas7; // score canvas
+    [SerializeField] private GameObject canvas23; // tuto canvas
+    [SerializeField] private GameObject canvas4 ; // bet canvas
+    [SerializeField] private GameObject canvas5 ; // countdown canvas
+    [SerializeField] private GameObject canvas6 ; // game canvas
+    [SerializeField] private GameObject canvas7 ; // score canvas
 
     [SerializeField] GameObject screen2;
     [SerializeField] GameObject screen3;

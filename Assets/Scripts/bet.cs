@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class bet : MonoBehaviour
 {
@@ -22,10 +23,30 @@ public class bet : MonoBehaviour
         bet_value = 1;
         cursor.transform.position = cursorTransforms[0 % cursorTransforms.Length].position;
 
-        int idxSpriteSet = UnityEngine.Random.Range(0, 7);
+        // Load the json file from disk
+        string filePath = Application.dataPath + "/sprites/images.json";
+        string jsonString = File.ReadAllText(filePath);
+        // Debug.Log("jsonString: " + jsonString);
+
+        // parse the JSON string into an ImageDataList object
+        scriptGuessGame.ImageDataList imageDataList = JsonUtility.FromJson<scriptGuessGame.ImageDataList>(jsonString);
+        scriptGuessGame.imageList = imageDataList.images;
+
+        int nbOfImages = scriptGuessGame.imageList.Length;
+        // int idxSpriteSet = 7;
+        int idxSpriteSet = UnityEngine.Random.Range(0, nbOfImages - 1);
+        Debug.Log("nbOfImages : " + nbOfImages);
+        Debug.Log("idxSpriteSet : " + idxSpriteSet);
         scriptGuessGame.SetSpriteSet(idxSpriteSet);
 
-        image.sprite = scriptGuessGame.curSpriteSet[scriptGuessGame.curSpriteSet.Length - 1];
+        // Load image from file
+        Texture2D texture = new Texture2D(1, 1);
+        byte[] bytes = File.ReadAllBytes(Application.dataPath + "/" + scriptGuessGame.imageList[idxSpriteSet].path);
+        texture.LoadImage(bytes);
+
+        Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+        image.sprite = sprite;
+        // image.sprite = scriptGuessGame.curSpriteSet[scriptGuessGame.curSpriteSet.Length - 1];
     }
 
     public bool isFrameFinished() {
