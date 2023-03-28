@@ -24,12 +24,19 @@ public class scriptGuessGame : MonoBehaviour
     [SerializeField] public Sprite[] octopusSprites;
     [SerializeField] public Sprite[] mugSprites;
 
+    private int width, height;
+
+    private double[] scales = {0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 1.0};
+
     public ImageData[] imageList;
     // Cursor and graduate sprites
     [SerializeField] private string[] solutions;
+    [SerializeField] private Texture2D texture;
+    [SerializeField] private Sprite sprite;
     // Cursor/Graduate
     [SerializeField] private GameObject cursor;
     [SerializeField] public Transform[] cursorTransforms;
+    private int M_idxSprite;
 
     // Previous frame
     [SerializeField] private countdown countdown;
@@ -99,6 +106,21 @@ public class scriptGuessGame : MonoBehaviour
 
         inputField.ActivateInputField();
 
+        texture = new Texture2D(1, 1);
+        byte[] bytes = File.ReadAllBytes(Application.dataPath + "/" + imageList[M_idxSprite].path);
+        texture.LoadImage(bytes);
+
+        width = texture.width;
+        height = texture.height;
+
+        Texture2D resizedTexture = Resize(texture,
+                        Convert.ToInt32( width  * 0.01),
+                        Convert.ToInt32( height * 0.01) );
+                sprite = Sprite.Create(resizedTexture, new Rect(0, 0, resizedTexture.width, resizedTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
+                image.sprite = sprite;
+
+        sprite = Sprite.Create(resizedTexture, new Rect(0, 0, resizedTexture.width, resizedTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
+        image.sprite = sprite;
         /*Debug.Log("imageList: " + imageList);
         foreach (ImageData exampleData in imageList)
         {
@@ -123,39 +145,11 @@ public class scriptGuessGame : MonoBehaviour
         score = player1PrecisionScore * player2SpeedScore;
     }
 
-    public void SetSpriteSet(int idxSpriteSet) {
-        switch (idxSpriteSet) {
-            case 0:
-                curSpriteSet = frogSprites;
-                solutions = new string[] {"grenouille", "frog", "froggy", "froggie", "crapeau", "ha"};
-                break;
-            case 1:
-                curSpriteSet = eyeSprites;
-                solutions = new string[] {"oeil", "eye", "eyes", "œil", "noenoeil", "ha"};
-                break;
-            case 2:
-                curSpriteSet = pizzaSprites;
-                solutions = new string[] {"pizza", "pizz", "piza", "pizzz", "ha"};
-                break;
-            case 3:
-                curSpriteSet = snakeSprites;
-                solutions = new string[] {"serpent", "snake", "snaky", "snaky snake", "ha"};
-                break;
-            case 4:
-                curSpriteSet = potatosSprites;
-                solutions = new string[] {"patate", "pomme de terre", "pommes de terre", "patates", "potatos", "potato", "cartof", "kartoffel", "ha"};
-                break;
-            case 5:
-                curSpriteSet = octopusSprites;
-                solutions = new string[] {"poulpe", "poulp", "octopus", "pieuvre", "poulpi", "octopussy", "octopussy poulpe", "ha"};
-                break;
-            case 6:
-                curSpriteSet = mugSprites;
-                solutions = new string[] {"mug", "tasse", "verre", "gamejam", "shadok", "ha"};
-                break;
-            default:
-                break;
-        } 
+    public void SetSpriteSet(int idxSpriteSet)
+    {
+        M_idxSprite = idxSpriteSet;
+        solutions = imageList[M_idxSprite].solution;
+        Debug.Log("SetSpriteSet: " + idxSpriteSet + " " + string.Join(", ", solutions));
     } 
 
     // Update is called once per frame
@@ -175,7 +169,7 @@ public class scriptGuessGame : MonoBehaviour
             // We are at the end of the last image and the player
             // has not guessed anything,
             // => the game ends without giving any score
-            if (idxSprite == curSpriteSet.Length) {
+            if (idxSprite == scales.Length) {
                 int player1guess = bet.bet_value;
                 int player2perf = idxSprite;
                 ComputeScore(player1guess, player2perf);
@@ -185,7 +179,11 @@ public class scriptGuessGame : MonoBehaviour
                 soundManager.PlaySoundClic();
 
                 // Change the sprite here
-                image.sprite = curSpriteSet[idxSprite % curSpriteSet.Length]; // Change the sprite of the Image object
+                Texture2D resizedTexture = Resize(texture,
+                        Convert.ToInt32( width  * scales[idxSprite]),
+                        Convert.ToInt32( height * scales[idxSprite]) );
+                sprite = Sprite.Create(resizedTexture, new Rect(0, 0, resizedTexture.width, resizedTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
+                image.sprite = sprite; // Change the sprite of the Image object
                 // Set a new position for the cursor
                 cursor.transform.position = cursorTransforms[idxSprite % cursorTransforms.Length].position;
 
@@ -198,6 +196,28 @@ public class scriptGuessGame : MonoBehaviour
     {
         if (inputField.text == "" || inputField.text.Length <= 1)
             inputField.image.color = Color.white;
+    }
+
+    private Texture2D Resize(Texture2D texture, int width, int height)
+    {
+        RenderTexture rt = RenderTexture.GetTemporary(width, height, 0, RenderTextureFormat.ARGB32);
+        rt.filterMode = FilterMode.Bilinear;
+
+        if (width == 0)
+            width = 1;
+        if (height == 0)
+            height = 1;
+
+        RenderTexture.active = rt;
+        Graphics.Blit(texture, rt);
+        Texture2D result = new Texture2D(width, height);
+        result.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+        result.Apply();
+
+        RenderTexture.active = null;
+        RenderTexture.ReleaseTemporary(rt);
+
+        return result;
     }
 
     public bool isFrameFinished() {

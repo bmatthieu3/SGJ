@@ -7591,7 +7591,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f08a02ffaeb1445e6b85c02432f1055b, type: 3}
   - {fileID: 21300000, guid: 995fc225723374cd88f1defc96279523, type: 3}
   - {fileID: 21300000, guid: 9e219b85515f04acb945196538352c48, type: 3}
+  imageList: []
   solutions: []
+  texture: {fileID: 0}
+  sprite: {fileID: 0}
   cursor: {fileID: 374630192}
   cursorTransforms:
   - {fileID: 1095926342}
