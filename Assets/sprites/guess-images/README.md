@@ -25,3 +25,4 @@ Il faut ensuite modifier le fichier `Assets/sprites/images.json` pour ajouter un
 * `license` est la licence de l'image - c'est précisé sur Wikipedia par exemple, ça sert peut être à rien de la noter, mais bon ça coûte rien !
 * `solutions` est la liste des solutions possibles pour cette image
 * Il faut que ce bout de code soit insérer dans le fichier *avant* le crochet fermant `]` de la liste des images.
+* Il faut aussi que l'image soit en format paysage, pour éviter que celle-ci ne soit trop déformée quand elle sera affichée

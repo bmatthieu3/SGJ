@@ -64,6 +64,30 @@
             "source": "https://commons.wikimedia.org/wiki/File:Pretzel_01-14.jpg",
             "license": "CC BY-SA 3.0",
             "solution": ["bretzel", "pretzel", "bretz", "pretz", "bretzels", "pretzels", "bretzle", "pretzle", "bretzles", "pretzles", "bretzels pretzels", "pretzels bretzels"]
+        },
+        {
+            "id": 8,
+            "name": "voiture",
+            "path": "sprites/guess-images/voiture.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:Tractionfr02.jpg",
+            "license": "Public Domain",
+            "solution": ["voiture", "car", "traction", "citroen", "citroën", "citroen traction", "citroën traction", "auto", "automobile"]
+        },
+        {
+            "id": 9,
+            "name": "pomme",
+            "path": "sprites/guess-images/pomme.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:Pomme_d%27amour_-_OPL_Peillac.jpg",
+            "license": "CC BY-SA 3.0",
+            "solution": ["pomme", "apple", "pommes", "apples", "pom", "app"]
+        },
+        {
+            "id": 10,
+            "name": "montgolfière",
+            "path": "sprites/guess-images/montgolfière.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:Balloon_and_Moon_over_Speyer.jpg",
+            "license": "CC BY-SA 4.0",
+            "solution": ["montgolfière", "ballon", "mongolfiree", "montgolfiere"]
         }
     ]
 }
