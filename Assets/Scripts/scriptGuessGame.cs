@@ -26,7 +26,8 @@ public class scriptGuessGame : MonoBehaviour
 
     private int width, height;
 
-    private double[] scales = {0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 1.0};
+    private int[] widths = {7, 14, 27, 34, 41, 55, 69, 104, 276, 691};
+    private int[] heights = {6, 12, 23, 29, 35, 47, 59, 88, 235, 588};
 
     public ImageData[] imageList;
     // Cursor and graduate sprites
@@ -169,7 +170,7 @@ public class scriptGuessGame : MonoBehaviour
             // We are at the end of the last image and the player
             // has not guessed anything,
             // => the game ends without giving any score
-            if (idxSprite == scales.Length) {
+            if (idxSprite == widths.Length) {
                 int player1guess = bet.bet_value;
                 int player2perf = idxSprite;
                 ComputeScore(player1guess, player2perf);
@@ -180,8 +181,8 @@ public class scriptGuessGame : MonoBehaviour
 
                 // Change the sprite here
                 Texture2D resizedTexture = Resize(texture,
-                        Convert.ToInt32( width  * scales[idxSprite]),
-                        Convert.ToInt32( height * scales[idxSprite]) );
+                        Convert.ToInt32( widths[idxSprite] ),
+                        Convert.ToInt32( heights[idxSprite]) );
                 sprite = Sprite.Create(resizedTexture, new Rect(0, 0, resizedTexture.width, resizedTexture.height), new Vector2(0.5f, 0.5f), 100.0f);
                 image.sprite = sprite; // Change the sprite of the Image object
                 // Set a new position for the cursor
