@@ -33,7 +33,7 @@ public class bet : MonoBehaviour
         scriptGuessGame.imageList = imageDataList.images;
 
         int nbOfImages = scriptGuessGame.imageList.Length;
-        // int idxSpriteSet = 7;
+        // int idxSpriteSet = 15;
         int idxSpriteSet = UnityEngine.Random.Range(0, nbOfImages - 1);
         Debug.Log("nbOfImages : " + nbOfImages);
         Debug.Log("idxSpriteSet : " + idxSpriteSet);

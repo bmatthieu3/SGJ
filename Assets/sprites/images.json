@@ -88,6 +88,46 @@
             "source": "https://commons.wikimedia.org/wiki/File:Balloon_and_Moon_over_Speyer.jpg",
             "license": "CC BY-SA 4.0",
             "solution": ["montgolfière", "ballon", "mongolfiree", "montgolfiere"]
+        },
+        {
+            "id": 11,
+            "name": "chaise",
+            "path": "sprites/guess-images/chaise.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:Mullca.jpg",
+            "license": "CC BY-SA 4.0",
+            "solution": ["chaise", "chair", "mullca", "mulca", "chaise mullca", "chaise mullca"]
+        },
+        {
+            "id": 12,
+            "name": "telescope",
+            "path": "sprites/guess-images/telescope.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:200_800_saj%C3%A1t.jpg",
+            "license": "CC BY-SA 4.0",
+            "solution": ["telescope", "télescope", "lunette"]
+        },
+        {
+            "id": 13,
+            "name": "piano",
+            "path": "sprites/guess-images/piano.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:Piano_Erard_1907.jpg",
+            "license": "CC BY-SA 4.0",
+            "solution": ["piano", "pianos"]
+        },
+        {
+            "id": 14,
+            "name": "chateau",
+            "path": "sprites/guess-images/chateau.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:France_Loir-et-Cher_Chambord_Chateau_03.jpg",
+            "license": "CC BY-SA 3.0",
+            "solution": ["chateau", "château", "castle", "chateaux", "châteaux", "castles", "chambord", "château de chambord", "château de chambord", "chateau de"]
+        },
+        {
+            "id": 15,
+            "name": "chaton",
+            "path": "sprites/guess-images/chaton.jpg",
+            "source": "https://commons.wikimedia.org/wiki/File:1-month-old_kittens_32.jpg",
+            "license": "CC BY-SA 2.0",
+            "solution": ["chaton", "kitten", "chatons", "kittens", "chaton kitten", "kitten chaton", "kitten chatons", "chatons kitten"]
         }
     ]
 }
