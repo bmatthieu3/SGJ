@@ -26,3 +26,13 @@ Il faut ensuite modifier le fichier `Assets/sprites/images.json` pour ajouter un
 * `solutions` est la liste des solutions possibles pour cette image
 * Il faut que ce bout de code soit insérer dans le fichier *avant* le crochet fermant `]` de la liste des images.
 * Il faut aussi que l'image soit en format paysage, pour éviter que celle-ci ne soit trop déformée quand elle sera affichée
+
+## Message aux développeurs pour la compilation
+
+Pour ques les images soient correctement chargées au moment de l'exécution du jeu, il est nécessaire de :
+
+1. Dans le dossier `build/a-vue-d-oeil_Data` (où `build` est l'endroit où le jeu compilé est généré), créer un dossier `sprites`.
+2. Dans ce dossier `sprites`, copier-coller le dossier `guess-images` (qui se trouve dans le dossier `Assets/sprites`).
+3. Dans le dossier `sprites`, copier-coller le fichier `images.json` (qui se trouve dans le dossier `Assets/sprites`).
+
+(il faut bien respecter les noms des dossiers et des fichiers)
